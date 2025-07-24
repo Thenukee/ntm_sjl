@@ -1,5 +1,6 @@
 import './globals.css';
 import { Metadata } from 'next';
+import './components/Navbar.tsx'
 
 export const metadata: Metadata = {
   title: 'Your Name – Data & Insights',
