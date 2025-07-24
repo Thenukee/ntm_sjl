@@ -1,7 +1,6 @@
 import './globals.css';
 import { Metadata } from 'next';
-import './components/Navbar.tsx'
-
+import Navbar from './components/Navbar';
 export const metadata: Metadata = {
   title: 'Your Name – Data & Insights',
   description: 'Portfolio mixing analytics, dogs & travel.',
@@ -13,7 +12,13 @@ export const dynamic = 'force-static';        // HTML export
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="bg-cream text-evening antialiased">{children}</body>
+
+      <body className="bg-cream text-evening antialiased">
+        <Navbar />  
+        <section className="min-h-[70vh] flex flex-col pt-32">
+          {children}
+        </section>
+      </body>
     </html>
   );
 }
