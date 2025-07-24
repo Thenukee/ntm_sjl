@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "export":"next export"
+    "export":"npm run build && next export"
   },
   "dependencies": {
     "framer-motion": "^12.23.9",
