@@ -1,10 +1,17 @@
 import './globals.css';
+import type {  Viewport } from 'next';
 import { Metadata } from 'next';
 import Navbar from './components/Navbar';
 export const metadata: Metadata = {
   title: 'Your Name – Data & Insights',
   description: 'Portfolio mixing analytics, dogs & travel.',
-  themeColor: '#C75E4B',
+  
+};
+// ✅ NEW – place themeColor here
+export const viewport: Viewport = {
+  themeColor: '#C75E4B',          // terracotta
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export const dynamic = 'force-static';        // HTML export
