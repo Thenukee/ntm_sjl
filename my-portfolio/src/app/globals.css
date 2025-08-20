@@ -1,15 +1,14 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap');
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: #5EA9DD;
+  --color-primary-dark: #4C4E8F;
+  --color-secondary: #C75E4B;
+  --color-accent: #A7D2C4;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,11 +18,320 @@
   }
 } 
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 body {
-  background-image: url('/paws-pattern.svg');
-  background-size: 400px;
-  background-repeat: repeat;
-  background-position: top left;
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* Subtle background pattern */
+.bg-pattern {
+  background-image: 
+    radial-gradient(rgba(167, 210, 196, 0.1) 1px, transparent 1px),
+    radial-gradient(rgba(94, 169, 221, 0.05) 1px, transparent 1px);
+  background-size: 38px 38px, 25px 25px;
+  background-position: 0 0, 19px 19px;
   background-attachment: fixed;
-  opacity: 0.97;
+}
+
+/* 3D perspective effect */
+.perspective {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* Enhanced glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 4px 16px rgba(31, 38, 135, 0.05),
+    0 8px 32px rgba(31, 38, 135, 0.05);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 
+    0 8px 32px rgba(31, 38, 135, 0.1),
+    0 16px 48px rgba(31, 38, 135, 0.1);
+}
+
+/* Modern button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  z-index: 0;
+}
+
+.btn:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: white;
+  box-shadow: 0 4px 14px -5px rgba(94, 169, 221, 0.5);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px -5px rgba(94, 169, 221, 0.65);
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Animated underline for links */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transition: width 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Text gradient effect */
+.text-gradient {
+  background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* Modern input styles */
+.input-modern {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.input-modern:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(94, 169, 221, 0.2);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(94, 169, 221, 0.5);
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(94, 169, 221, 0.8);
+}
+
+/* Animation presets */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.stagger-item {
+  opacity: 0;
+}
+
+.stagger-item.active {
+  animation: fadeInStagger 0.5s ease forwards;
+}
+
+@keyframes fadeInStagger {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Cursor spotlight effect */
+.cursor-spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.cursor-spotlight::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--x) var(--y), rgba(94, 169, 221, 0.1) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.cursor-spotlight:hover::after {
+  opacity: 1;
+}
+
+/* Advanced hover states */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+/* Enhanced shadow for cards */
+.shadow-card {
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03),
+    0 -2px 16px -8px rgba(94, 169, 221, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* Enhanced soft shadow */
+.shadow-soft {
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.05),
+    0 4px 6px -2px rgba(0, 0, 0, 0.03),
+    0 -4px 16px -8px rgba(94, 169, 221, 0.03);
+}
+
+/* Custom animated gradient background */
+.animated-gradient {
+  background: linear-gradient(
+    45deg,
+    rgba(94, 169, 221, 0.1),
+    rgba(138, 123, 215, 0.1),
+    rgba(94, 169, 221, 0.05)
+  );
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Custom cursor styles */
+.custom-cursor {
+  mix-blend-mode: difference;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: radial-gradient(circle at 30% 30%, rgba(140, 200, 255, 0.8), rgba(94, 169, 221, 0.3));
+  box-shadow: 0 0 15px 2px rgba(94, 169, 221, 0.3);
+  backdrop-filter: blur(1px);
+}
+
+/* Advanced text effects */
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(45deg, #5EA9DD, #8A7BD7);
+}
+
+/* Dark mode transitions */
+.dark-mode {
+  background-color: #121212;
+  color: #f5f5f5;
+  transition: all 0.5s ease;
+}
+
+/* Add these styles for the bubble effect */
+
+.bubble {
+  position: fixed;
+  pointer-events: none;
+  z-index: 90;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2));
+  box-shadow: 
+    inset 0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 5px rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(1px);
+  mix-blend-mode: screen;
 }

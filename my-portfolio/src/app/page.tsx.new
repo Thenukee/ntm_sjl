@@ -1,0 +1,456 @@
+'use client';
+import { motion, LazyMotion, domAnimation } from 'framer-motion';
+import Link from 'next/link';
+import Image from 'next/image';
+
+export default function Home() {
+  return (
+    <LazyMotion features={domAnimation}>
+      <div className="bg-pattern">
+        {/* ---------- Hero ---------- */}
+        <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden px-4 md:px-8">
+          {/* Abstract background elements */}
+          <div className="absolute -top-20 -right-20 w-96 h-96 bg-sky/10 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-40 -left-20 w-80 h-80 bg-violet/10 rounded-full blur-3xl"></div>
+          
+          <motion.div 
+            className="z-10 max-w-4xl mx-auto text-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            <motion.span 
+              className="inline-block text-sky font-medium mb-3"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+            >
+              Data Analyst &amp; Business Analytics Specialist
+            </motion.span>
+            
+            <motion.h1
+              className="text-4xl md:text-6xl lg:text-7xl font-bold max-w-3xl mx-auto leading-tight mb-6"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.7 }}
+            >
+              Turning <span className="text-sky">data</span> into <span className="text-violet">stories</span> that drive decisions
+            </motion.h1>
+            
+            <motion.p 
+              className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+            >
+              I combine analytical skills with business acumen to transform complex data into actionable insights.
+            </motion.p>
+
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.5 }}
+            >
+              <Link
+                href="#projects"
+                className="bg-sky text-white px-8 py-3.5 rounded-full hover:bg-violet transition-colors shadow-md hover:shadow-lg font-medium"
+              >
+                View My Projects
+              </Link>
+              <Link
+                href="#contact"
+                className="border-2 border-sky text-sky px-8 py-3 rounded-full hover:bg-sky hover:text-white transition-colors font-medium"
+              >
+                Contact Me
+              </Link>
+            </motion.div>
+          </motion.div>
+          
+          {/* Subtle decorative element */}
+          <motion.div
+            className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.7 }}
+            transition={{ delay: 1.5, duration: 1 }}
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 5L12 19M12 19L19 12M12 19L5 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </motion.div>
+          
+          {/* Paw‑print animation */}
+          <motion.img
+            src="/paws.svg"
+            alt=""
+            className="absolute top-1/3 left-1/4 w-24 pointer-events-none opacity-50"
+            animate={{ x: ['-100%', '400%'], opacity: [0, 0.5, 0] }}
+            transition={{ duration: 15, repeat: Infinity, repeatType: "loop" }}
+          />
+        </section>
+
+        {/* ---------- Skills Section ---------- */}
+        <section className="py-16 px-4">
+          <div className="max-w-5xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-3">My Expertise</h2>
+            <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+              I leverage these skills and tools to extract meaningful insights from complex datasets
+            </p>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: 'Data Analysis',
+                  skills: ['SQL', 'Python', 'R', 'Tableau', 'Power BI'],
+                  icon: (
+                    <svg className="w-8 h-8 text-sky mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                  ),
+                },
+                {
+                  title: 'Business Intelligence',
+                  skills: ['Dashboard Design', 'Data Modeling', 'KPI Tracking', 'Forecasting'],
+                  icon: (
+                    <svg className="w-8 h-8 text-sky mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    </svg>
+                  ),
+                },
+                {
+                  title: 'Tools & Technologies',
+                  skills: ['Git', 'dbt', 'Excel', 'Jupyter', 'Google Analytics'],
+                  icon: (
+                    <svg className="w-8 h-8 text-sky mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                  ),
+                },
+              ].map((category, i) => (
+                <motion.div
+                  key={category.title}
+                  className="glass rounded-xl p-6 shadow-soft"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                >
+                  {category.icon}
+                  <h3 className="text-xl font-bold text-violet mb-2">{category.title}</h3>
+                  <ul className="space-y-2">
+                    {category.skills.map(skill => (
+                      <li key={skill} className="flex items-center gap-2">
+                        <span className="text-sky text-xs">●</span>
+                        <span>{skill}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- About ---------- */}
+        <section id="about" className="py-20 px-4 relative">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <motion.div
+                className="relative"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="w-64 h-64 md:w-80 md:h-80 mx-auto md:mx-0 rounded-full overflow-hidden shadow-lg border-4 border-white">
+                  <img
+                    src="/you-and-dog.jpg"
+                    alt="Anya Martin with her dog"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-4 -right-4 bg-white p-4 rounded-full shadow-md">
+                  <img src="/paws.svg" alt="" className="w-8 h-8" />
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.6 }}
+              >
+                <span className="text-sky font-medium">About Me</span>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6 mt-1">
+                  Transforming Data into <span className="text-violet">Strategic Decisions</span>
+                </h2>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  I'm <strong>Anya Martin</strong>, a business analytics undergraduate with a passion for finding stories within data. 
+                  I believe that data-driven insights are the foundation of successful business strategies.
+                </p>
+                <p className="text-gray-600 mb-8 leading-relaxed">
+                  When I'm not analyzing datasets, you'll find me exploring new hiking trails with my dog or planning my next international adventure.
+                  My travels have taught me to look at problems from different perspectives—a skill I bring to every analysis I perform.
+                </p>
+                
+                <div className="flex flex-wrap gap-6 mb-8">
+                  <div>
+                    <div className="text-2xl font-bold text-sky">3+</div>
+                    <div className="text-sm text-gray-500">Years Experience</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-sky">15+</div>
+                    <div className="text-sm text-gray-500">Projects Completed</div>
+                  </div>
+                  <div>
+                    <div className="text-2xl font-bold text-sky">5+</div>
+                    <div className="text-sm text-gray-500">Tools Mastered</div>
+                  </div>
+                </div>
+                
+                <Link
+                  href="/anya-martin-cv.pdf"
+                  className="inline-flex items-center gap-2 bg-violet text-white px-6 py-3 rounded-full hover:bg-sky transition-colors shadow-md hover:shadow-lg"
+                >
+                  <span>Download CV</span>
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                  </svg>
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- Projects ---------- */}
+        <section id="projects" className="py-20 px-4 bg-gradient-to-b from-white to-sage/5">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-sky font-medium">Portfolio</span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-1 mb-4">Featured Projects</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Explore my latest data analytics projects that demonstrate my ability to extract meaningful insights and drive business decisions.
+              </p>
+            </div>
+            
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  title: 'Mexico Tourism Revenue Analysis',
+                  description: 'Statistical analysis of tourism patterns and revenue streams across Mexico's top destinations, identifying growth opportunities.',
+                  image: '/thumbs/mexico-revenue.jpg',
+                  tools: ['Tableau', 'Python', 'SQL'],
+                },
+                {
+                  title: 'Sri Lanka Tourism Trends',
+                  description: 'Forecasting post-pandemic recovery for Sri Lanka's tourism industry using time series analysis and predictive modeling.',
+                  image: '/thumbs/srilanka-tourism.jpg',
+                  tools: ['Power BI', 'R', 'Excel'],
+                },
+                {
+                  title: 'London Bike Share Analysis',
+                  description: 'Spatial and temporal analysis of London's bike sharing system, optimizing distribution and maintenance schedules.',
+                  image: '/thumbs/london-bikes.jpg', 
+                  tools: ['Python', 'Matplotlib', 'GIS'],
+                },
+                {
+                  title: 'Pet Food Market Trends',
+                  description: 'Market research analysis on emerging trends in premium pet food, identifying consumer preferences and growth segments.',
+                  image: '/thumbs/dogfood-trends.jpg',
+                  tools: ['Tableau', 'SPSS', 'Survey Analysis'],
+                },
+              ].map((project, i) => (
+                <motion.article
+                  key={project.title}
+                  className="glass rounded-xl overflow-hidden shadow-card"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  whileHover={{ y: -8 }}
+                >
+                  <div className="h-48 overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="font-bold text-xl mb-2">{project.title}</h3>
+                    <p className="text-gray-600 text-sm mb-4">{project.description}</p>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.tools.map(tool => (
+                        <span key={tool} className="text-xs bg-sky/10 text-sky px-2 py-1 rounded-full">{tool}</span>
+                      ))}
+                    </div>
+                    <a href="#" className="text-sky font-medium text-sm flex items-center gap-1 hover:text-violet transition-colors">
+                      View Project
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                      </svg>
+                    </a>
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ---------- Contact ---------- */}
+        <section id="contact" className="py-20 px-4 relative">
+          <div className="absolute -top-40 right-0 w-96 h-96 bg-violet/5 rounded-full blur-3xl"></div>
+          
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <span className="text-sky font-medium">Contact</span>
+              <h2 className="text-3xl md:text-4xl font-bold mt-1 mb-4">Let's Connect</h2>
+              <p className="text-gray-600 max-w-xl mx-auto">
+                Have a project in mind or want to discuss data analytics opportunities? 
+                I'd love to hear from you!
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-5 gap-8">
+              <div className="md:col-span-2 space-y-6">
+                <motion.div
+                  className="glass p-6 rounded-xl"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="bg-sky/10 p-3 rounded-full">
+                      <svg className="w-6 h-6 text-sky" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-bold">Email</h3>
+                      <a href="mailto:anya.martin@example.com" className="text-sm text-gray-600 hover:text-sky">anya.martin@example.com</a>
+                    </div>
+                  </div>
+                </motion.div>
+                
+                <motion.div
+                  className="glass p-6 rounded-xl"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                >
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="bg-sky/10 p-3 rounded-full">
+                      <svg className="w-6 h-6 text-sky" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-bold">Social Media</h3>
+                      <div className="flex gap-3 mt-2">
+                        <a href="https://linkedin.com/in/anyamartin" className="text-gray-600 hover:text-sky" aria-label="LinkedIn">
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                          </svg>
+                        </a>
+                        <a href="https://github.com/anyamartin" className="text-gray-600 hover:text-sky" aria-label="GitHub">
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                          </svg>
+                        </a>
+                        <a href="https://twitter.com/anyamartin" className="text-gray-600 hover:text-sky" aria-label="Twitter">
+                          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                          </svg>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+              
+              <motion.div
+                className="md:col-span-3 glass p-8 rounded-xl shadow-soft"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+              >
+                <form action="https://formspree.io/f/yourID" method="POST" className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        placeholder="Your name"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-sky focus:ring-1 focus:ring-sky transition"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="_replyto"
+                        placeholder="Your email"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-sky focus:ring-1 focus:ring-sky transition"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                    <input
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      placeholder="How can I help you?"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-sky focus:ring-1 focus:ring-sky transition"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={5}
+                      placeholder="Your message"
+                      required
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:border-sky focus:ring-1 focus:ring-sky transition resize-none"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="bg-sky text-white px-8 py-3.5 rounded-lg hover:bg-violet transition-colors shadow-md hover:shadow-lg font-medium w-full md:w-auto"
+                  >
+                    Send Message
+                  </button>
+                </form>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Footer */}
+        <footer className="py-8 px-4 border-t border-gray-100">
+          <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-500 text-sm">
+              © {new Date().getFullYear()} Anya Martin. All rights reserved.
+            </p>
+            <div className="flex gap-6 mt-4 md:mt-0">
+              <Link href="#about" className="text-sm text-gray-500 hover:text-sky transition-colors">About</Link>
+              <Link href="#projects" className="text-sm text-gray-500 hover:text-sky transition-colors">Projects</Link>
+              <Link href="#contact" className="text-sm text-gray-500 hover:text-sky transition-colors">Contact</Link>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </LazyMotion>
+  );
+}

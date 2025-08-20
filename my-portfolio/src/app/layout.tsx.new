@@ -2,21 +2,6 @@ import './globals.css';
 import type { Viewport } from 'next';
 import { Metadata } from 'next';
 import Navbar from './components/Navbar';
-import { Manrope, Syne } from 'next/font/google';
-
-// Font configuration
-const manrope = Manrope({ 
-  subsets: ['latin'],
-  variable: '--font-manrope',
-  display: 'swap',
-});
-
-const syne = Syne({
-  weight: ['400', '500', '600', '700', '800'],
-  subsets: ['latin'],
-  variable: '--font-syne',
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   title: 'Anya Martin – Data Analytics Portfolio',
@@ -35,13 +20,12 @@ export const dynamic = 'force-static';        // HTML export
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`scroll-smooth ${manrope.variable} ${syne.variable}`}>
+    <html lang="en" className="scroll-smooth">
       <body className="antialiased">
         <Navbar />  
         <main className="min-h-screen">
           {children}
         </main>
-        <div id="portal-root"></div>
       </body>
     </html>
   );
